@@ -57,6 +57,8 @@ public class MedicoController {
 		medico.setCity(medicoDetails.getCity());
 		medico.setState(medicoDetails.getState());
 		medico.setSpecialty(medicoDetails.getSpecialty());
+		medico.setActive(medicoDetails.getActive());
+		medico.setBusy(medicoDetails.getBusy());
 
 		Medico updateMedico = medicoRepository.save(medico);
 		return ResponseEntity.ok(updateMedico);
