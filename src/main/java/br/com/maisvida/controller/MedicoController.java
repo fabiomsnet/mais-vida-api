@@ -54,14 +54,14 @@ public class MedicoController {
 		medico.setFirstName(medicoDetails.getFirstName());
 		medico.setLastName(medicoDetails.getLastName());
 		medico.setEmail(medicoDetails.getEmail());
-		medico.setCidade(medicoDetails.getCidade());
-		medico.setEstado(medicoDetails.getEstado());
-		medico.setEspecialidade(medicoDetails.getEspecialidade());
+		medico.setCity(medicoDetails.getCity());
+		medico.setState(medicoDetails.getState());
+		medico.setSpecialty(medicoDetails.getSpecialty());
 
 		Medico updateMedico = medicoRepository.save(medico);
 		return ResponseEntity.ok(updateMedico);
 	}
-	
+
 	@DeleteMapping("/medicos/{id}")
 	public ResponseEntity<Medico> deleteMedico(@PathVariable(value = "id") Long medicoId) {
 		Medico medico = medicoRepository.findOne(medicoId);

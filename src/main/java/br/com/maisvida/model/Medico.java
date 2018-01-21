@@ -1,7 +1,5 @@
 package br.com.maisvida.model;
 
-import java.io.Serializable;
-
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
@@ -18,7 +16,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 @Table(name = "medicos")
 @EntityListeners(AuditingEntityListener.class)
 @JsonIgnoreProperties(value = { "createdAt", "updatedAt" }, allowGetters = true)
-public class Medico implements Serializable {
+public class Medico {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,16 +29,20 @@ public class Medico implements Serializable {
 	private String lastName;
 
 	@NotBlank
-	private String especialidade;
+	private String specialty;
 
 	@NotBlank
 	private String email;
 
 	@NotBlank
-	private String estado;
+	private String state;
 
 	@NotBlank
-	private String cidade;
+	private String city;
+
+	private Boolean active;
+
+	private Boolean busy;
 
 	public Long getId() {
 		return id;
@@ -66,14 +68,6 @@ public class Medico implements Serializable {
 		this.lastName = lastName;
 	}
 
-	public String getEspecialidade() {
-		return especialidade;
-	}
-
-	public void setEspecialidade(String especialidade) {
-		this.especialidade = especialidade;
-	}
-
 	public String getEmail() {
 		return email;
 	}
@@ -82,20 +76,44 @@ public class Medico implements Serializable {
 		this.email = email;
 	}
 
-	public String getEstado() {
-		return estado;
+	public String getState() {
+		return state;
 	}
 
-	public void setEstado(String estado) {
-		this.estado = estado;
+	public void setState(String state) {
+		this.state = state;
 	}
 
-	public String getCidade() {
-		return cidade;
+	public String getCity() {
+		return city;
 	}
 
-	public void setCidade(String cidade) {
-		this.cidade = cidade;
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getSpecialty() {
+		return specialty;
+	}
+
+	public void setSpecialty(String specialty) {
+		this.specialty = specialty;
+	}
+
+	public Boolean getActive() {
+		return active;
+	}
+
+	public void setActive(Boolean active) {
+		this.active = active;
+	}
+
+	public Boolean getBusy() {
+		return busy;
+	}
+
+	public void setBusy(Boolean busy) {
+		this.busy = busy;
 	}
 
 }
